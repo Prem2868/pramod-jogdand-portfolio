@@ -1,0 +1,21 @@
+name = "pramod-jogdand-portfolio"
+type = "javascript"
+account_id = ""
+workers_dev = true
+route = ""
+zone_id = ""
+
+[env.production]
+name = "pramod-jogdand-portfolio-prod"
+routes = [
+  { pattern = "pramod-jogdand.pages.dev", zone_name = "pages.dev" }
+]
+
+[build]
+command = "pnpm build"
+cwd = "./"
+watch_paths = ["client/src/**/*.tsx", "client/src/**/*.css"]
+
+[build.upload]
+format = "service-worker"
+main = "./dist/index.js"
